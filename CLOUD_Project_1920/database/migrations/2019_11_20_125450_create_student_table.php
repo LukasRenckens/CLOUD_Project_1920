@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateStudentTable extends Migration
 {
-    /**
+    /** hoi
      * Run the migrations.
      *
      * @return void
@@ -14,9 +14,9 @@ class CreateStudentTable extends Migration
     public function up()
     {
         Schema::create('student', function (Blueprint $table) {
-            $table->bigIncrements('id');
+           $table->bigIncrements('id');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
