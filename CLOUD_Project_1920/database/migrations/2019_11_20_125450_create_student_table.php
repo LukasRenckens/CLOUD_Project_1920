@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateStudentTable extends Migration
 {
-    /**
+    /** hoi
      * Run the migrations.
      *
      * @return void
@@ -18,7 +18,7 @@ class CreateStudentTable extends Migration
             $table->double('studentennummer');
             $table->text('klas');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
