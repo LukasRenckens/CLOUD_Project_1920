@@ -14,11 +14,63 @@ class studentController extends Controller
     public function index()
     {
         //return "Goeie ball,..... teelbal ofwa";
-        return Student::all()->id;
+        //return Student::all();
+       // string voornaam = "Niels";
+        //return Student::where(voornaam, 'Niels')->get();
+        return Student::find(3)->naam;
         
         //return Laptop::find(2)->merk->laptops;
     }
+    
+    public function search()
+    {
+        return view("zoekformulier");
+        //
+    }
 
+    
+    public function found(Request $request)
+    {
+        // synchroon service oproepen = website ophalen
+        $mi = $request->minPrijs;
+        $ma = $request->maxPrijs;
+       
+        return "JA hallo het werkt eindelijk";
+    }
+    
+    public function find_studentennummer(Request $request)
+    {
+        // synchroon service oproepen = website ophalen
+        $naam = $request->naamS;
+        $voornaam = $request->voornaamS;
+        try {
+          $id = Student::where('voornaam', '=', $voornaam)->id;
+        //return Laptop::all()->where('prijs', '<', 499);
+        //->orWhere('prijs', 1499);
+        }   
+        catch (\Exception $e) {
+            print("naam: $naam, voornaam: $voornaam ");
+          return "Deze student heeft geen studentennummer";
+        } 
+       
+        return "Het studentennummer $id van $voornaam $naam:";
+    }
+     public function  find_naam_voornaam(Request $request)
+    {
+        // synchroon service oproepen = website ophalen
+        $studentennummer = $request->studentennummerS;
+        try {
+             $naam = Student::find($studentennummer)->naam;
+             $voornaam = Student::find($studentennummer)->voornaam;
+        }   
+        catch (\Exception $e) {
+           // $this->command->error("SQL Error: " . $e->getMessage() . "\n");
+            return "Er is geen student met het studentennummer $studentennummer";
+        }     
+        return "De naam met het studenten nummer  '$studentennummer' is '$naam $voornaam'";
+    }
+    
+   
     /**
      * Show the form for creating a new resource.
      *
