@@ -22,10 +22,29 @@ public class WebService : System.Web.Services.WebService
         //InitializeComponent(); 
     }
 
-    [WebMethod]
-    public string HelloWorld()
+    private String[] fruits = { "apple", "pear", "banana", "grape", "strawberry", "mandarin", "cherry" };
+    private String[] soups = {"tomatosoup", "vegetablesoup", "goulash soup", "aspergus soup", "pumpkin soup"};
+
+    public int GetDayOfWeek()
     {
-        return "Hello World";
+        DateTime today = DateTime.Today;
+        return (int)(today.DayOfWeek);
     }
+
+    [WebMethod]
+    public string FruitOfTheMonth()
+    {
+        DateTime today = DateTime.Today;
+        return fruits[(int)(today.Month)];
+    }
+
+    [WebMethod]
+    public string SoupOfTheDay()
+    {
+        Random rand = new Random();
+        
+        return soups[rand.Next(5)];
+    }
+
 
 }
