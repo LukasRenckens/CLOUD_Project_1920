@@ -1,0 +1,7 @@
+Google books api v1
+
+https://github.com/AntoineAugusti/google-books/tree/master/src
+
+https://developers.google.com/books/docs/overview
+
+https://www.youtube.com/watch?v=uI_UP0pgsDE
