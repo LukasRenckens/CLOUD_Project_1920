@@ -35,7 +35,7 @@ public class WebService : System.Web.Services.WebService
     public string FruitOfTheDay()
     {
         DateTime today = DateTime.Today;
-        return fruits[(int)(today.Month)];
+        return fruits[(int)(today.DayOfWeek)];
     }
 
     [WebMethod]
