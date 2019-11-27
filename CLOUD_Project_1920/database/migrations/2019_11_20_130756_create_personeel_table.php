@@ -13,8 +13,11 @@ class CreatePersoneelTable extends Migration
      */
     public function up()
     {
-        Schema::create('personeel', function (Blueprint $table) {
+        Schema::create('personeels', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->double('personeelsnummer');
+            $table->text('vak');
+            $table->text('klas');
             $table->timestamps();
         });
     }
