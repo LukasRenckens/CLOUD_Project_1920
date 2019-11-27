@@ -32,14 +32,14 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string FruitOfTheMonth()
+    public string FruitOfTheDay()
     {
         DateTime today = DateTime.Today;
         return fruits[(int)(today.Month)];
     }
 
     [WebMethod]
-    public string SoupOfTheDay()
+    public string SoupOfTheWeek()
     {
         Random rand = new Random();
         
