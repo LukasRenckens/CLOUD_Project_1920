@@ -17,9 +17,10 @@ class studentController extends Controller
         //return Student::all();
        // string voornaam = "Niels";
         //return Student::where(voornaam, 'Niels')->get();
-        return Student::find(3)->naam;
+        //return Student::find(3)->naam;
         
         //return Laptop::find(2)->merk->laptops;
+        return view("index");
     }
     
     public function search()
