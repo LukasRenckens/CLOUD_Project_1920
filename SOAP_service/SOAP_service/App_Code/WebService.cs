@@ -14,37 +14,45 @@ using System.Web.Services;
 // [System.Web.Script.Services.ScriptService]
 public class WebService : System.Web.Services.WebService
 {
+    private String[] dagen = { "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag" };
+    private Service service = new Service();
 
     public WebService()
     {
-
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
-
-    private String[] fruits = { "apple", "pear", "banana", "grape", "strawberry", "mandarin", "cherry" };
-    private String[] soups = {"tomatosoup", "vegetablesoup", "goulash soup", "aspergus soup", "pumpkin soup"};
-
-    public int GetDayOfWeek()
+    [WebMethod]
+    public string Hello(string h)
     {
-        DateTime today = DateTime.Today;
-        return (int)(today.DayOfWeek);
+        if (Convert.ToInt32(h) == 1) return "Hello 1";
+        else return "Hello world!";
+
     }
 
     [WebMethod]
-    public string FruitOfTheDay()
+    public List<Hoofdgerecht> GetHoofdgerechts()
     {
-        DateTime today = DateTime.Today;
-        return fruits[(int)(today.DayOfWeek)];
+        return service.GetHoofdgerechts();
     }
-
     [WebMethod]
-    public string SoupOfTheWeek()
+    public List<Dagsoep> GetDagsoeps()
     {
-        Random rand = new Random();
-        
-        return soups[rand.Next(5)];
+        return service.GetDagsoeps();
     }
-
-
+    [WebMethod]
+    public List<Nagerecht> GetNagerechts()
+    {
+        return service.GetNagerechts();
+    }
+    [WebMethod]
+    public List<Menu> GetWeekMenu()
+    {
+        return service.GetWeekmenu();
+    }
+    [WebMethod]
+    public Menu GetDagMenu()
+    {
+        return service.GetDagmenu();
+    }
 }

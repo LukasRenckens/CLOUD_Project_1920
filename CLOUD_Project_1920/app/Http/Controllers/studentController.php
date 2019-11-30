@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use Artisaninweb\SoapWrapper\SoapWrapper;
+use App\SOAP\HelloRequest;
+use App\SOAP\GetDagMenuRequest;
+
 class studentController extends Controller
 {
     /**
@@ -20,8 +24,40 @@ class studentController extends Controller
         //return Student::find(3)->naam;
         
         //return Laptop::find(2)->merk->laptops;
-        return view("index");
+        
+//        $oSoapWrapper = new SoapWrapper();
+//        $oSoapWrapper->add('WebService', function ($oService){
+//            $oService
+//                ->wsdl('http://localhost:65266/WebService.asmx?WSDL')
+//                ->trace(true)
+//                ->classmap([
+//                    HelloRequest::class
+//                ]);
+//        });
+//        $Response = $oSoapWrapper->call('WebService.Hello',[
+//                new HelloRequest(1)
+//            ]);
+//        $h = ($Response->HelloResult);
+//        
+//        return $h;
+        
+        $oSoapWrapper = new SoapWrapper();
+        $oSoapWrapper->add('WebService', function ($oService){
+            $oService
+                ->wsdl('http://localhost:65266/WebService.asmx?WSDL')
+                ->trace(true)
+                ->classmap([
+                GetDagMenuRequest::class
+                ]);
+        });
+        $Response = $oSoapWrapper->call('WebService.GetDagMenu',[
+                new GetDagMenuRequest()
+            ]);
+        $result = ($Response->GetDagMenuResult);
+        
+        echo json_encode($result);
     }
+    
     
     public function search()
     {
