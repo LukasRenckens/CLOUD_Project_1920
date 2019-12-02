@@ -24,23 +24,23 @@ class studentController extends Controller
         //return Student::find(3)->naam;
         
         //return Laptop::find(2)->merk->laptops;
-        
-//        $oSoapWrapper = new SoapWrapper();
-//        $oSoapWrapper->add('WebService', function ($oService){
-//            $oService
+//        $data = 1;
+//        $SoapWrapper = new SoapWrapper();
+//        $SoapWrapper->add('WebService', function ($Service) use($data){
+//            $Service
 //                ->wsdl('http://localhost:65266/WebService.asmx?WSDL')
 //                ->trace(true)
 //                ->classmap([
 //                    HelloRequest::class
 //                ]);
 //        });
-//        $Response = $oSoapWrapper->call('WebService.Hello',[
+//        $Response = $SoapWrapper->call('WebService.Hello',[
 //                new HelloRequest(1)
 //            ]);
-//        $h = ($Response->HelloResult);
+//        $h =  $Response->HelloResult;
 //        
 //        return $h;
-        
+//        
         $oSoapWrapper = new SoapWrapper();
         $oSoapWrapper->add('WebService', function ($oService){
             $oService
