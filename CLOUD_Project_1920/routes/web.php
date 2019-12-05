@@ -36,3 +36,4 @@ Route::resource('students','studentController');
 Route::resource('punten','PuntenToevoegenController');
 
 
+Route::get('index', 'StudentController@index');

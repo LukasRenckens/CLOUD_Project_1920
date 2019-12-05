@@ -14,7 +14,7 @@ class CreatePersoneelTable extends Migration
     public function up()
     {
         Schema::create('personeels', function (Blueprint $table) {
-            $table->bigIncrements('personeelsnummer');
+            $table->bigIncrements('id');
             $table->text("vak");
             $table->text("klas");
             $table->timestamps();

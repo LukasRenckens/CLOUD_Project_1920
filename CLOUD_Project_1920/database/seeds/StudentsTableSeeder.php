@@ -10,9 +10,9 @@ class StudentsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {        
         DB::table('students')->truncate();
-        
+    
         for($i = 0; $i < 10; $i++){
             DB::table('students')->insert([
                 'klas' => "EA-ICT",
