@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersoneelTable extends Migration
+class CreateKlasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePersoneelTable extends Migration
      */
     public function up()
     {
-        Schema::create('personeels', function (Blueprint $table) {
-            $table->bigIncrements('personeelsnummer');
-            $table->text("vak");
-            $table->text("klas");
+        Schema::create('klas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->text('klas');
+            $table->double('jaar');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreatePersoneelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personeels');
+        Schema::dropIfExists('klas');
     }
 }
