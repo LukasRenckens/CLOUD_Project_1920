@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+//Voor database
+using System.Data;
+using System.Data.SqlClient;
 
 /// <summary>
 /// Summary description for WebService
@@ -12,10 +15,16 @@ using System.Web.Services;
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 // [System.Web.Script.Services.ScriptService]
+//Source1: https://www.youtube.com/watch?v=9LH-DHwZlYI
+//Source2: https://www.youtube.com/watch?v=CJem5eizQtQ
+//Source3: https://www.youtube.com/watch?v=plRPBT3h3S8
 public class WebService : System.Web.Services.WebService
 {
     private String[] dagen = { "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag" };
-    private Service service = new Service();
+    private List<Menu> weekmenu = new List<Menu>();
+    private List<Dagsoep> daglist = new List<Dagsoep>();
+    private List<Hoofdgerecht> hoofdlist = new List<Hoofdgerecht>();
+    private List<Nagerecht> nalist = new List<Nagerecht>();
 
     public WebService()
     {
@@ -23,9 +32,9 @@ public class WebService : System.Web.Services.WebService
         //InitializeComponent(); 
     }
     [WebMethod]
-    public string Hello(string h)
+    public string Hello(int h)
     {
-        if (Convert.ToInt32(h) == 1) return "Hello 1";
+        if (h == 1) return "Hello 1";
         else return "Hello world!";
 
     }
@@ -33,26 +42,96 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public List<Hoofdgerecht> GetHoofdgerechts()
     {
-        return service.GetHoofdgerechts();
+        string connectionString = "Server=tcp:prjcloudserver.database.windows.net,1433;Initial Catalog=CLOUD_Database;Persist Security Info=False;User ID=lukas;Password=#CLOUD_project;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        SqlConnection connection = new SqlConnection(connectionString);
+        SqlCommand command = new SqlCommand("SELECT * FROM Hoofdgerecht", connection);
+        connection.Open();
+        SqlDataReader datareader = command.ExecuteReader();
+        while (datareader.Read())
+        {
+            Hoofdgerecht h = new Hoofdgerecht();
+            h.id = int.Parse(datareader[0].ToString());
+            h.vlees = datareader[1].ToString();
+            h.groenten = datareader[2].ToString();
+            h.aardappelen = datareader[3].ToString();
+            hoofdlist.Add(h);
+        }
+        datareader.Close();
+        connection.Close();
+
+        return hoofdlist;
     }
     [WebMethod]
     public List<Dagsoep> GetDagsoeps()
     {
-        return service.GetDagsoeps();
+        string connectionString = "Data Source=prjcloudserver.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#CLOUD_project;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection connection = new SqlConnection(connectionString);
+        SqlCommand command = new SqlCommand("SELECT * FROM Dagsoep", connection);
+        connection.Open();
+        SqlDataReader datareader = command.ExecuteReader();
+        while (datareader.Read())
+        {
+            Dagsoep d = new Dagsoep();
+            d.id = int.Parse(datareader[0].ToString());
+            d.dagsoep = datareader[1].ToString();
+            daglist.Add(d);
+        }
+        datareader.Close();
+        connection.Close();
+
+        return daglist;
     }
     [WebMethod]
     public List<Nagerecht> GetNagerechts()
     {
-        return service.GetNagerechts();
+        string connectionString = "Data Source=prjcloudserver.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#CLOUD_project;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection connection = new SqlConnection(connectionString);
+        SqlCommand command = new SqlCommand("SELECT * FROM Nagerecht", connection);
+        connection.Open();
+        SqlDataReader datareader = command.ExecuteReader();
+        while (datareader.Read())
+        {
+            Nagerecht n = new Nagerecht();
+            n.id = int.Parse(datareader[0].ToString());
+            n.nagerecht = datareader[1].ToString(); ;
+            nalist.Add(n);
+        }
+        datareader.Close();
+        connection.Close();
+
+        return nalist;
     }
     [WebMethod]
     public List<Menu> GetWeekMenu()
     {
-        return service.GetWeekmenu();
+        Random rand = new Random();
+        daglist = GetDagsoeps();
+        hoofdlist = GetHoofdgerechts();
+        nalist = GetNagerechts();
+
+        if (!weekmenu.Any())
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Menu menu = new Menu(daglist[rand.Next(1, daglist.Count)], hoofdlist[rand.Next(1, hoofdlist.Count)], nalist[rand.Next(1, nalist.Count)]);
+                weekmenu.Add(menu);
+            }
+        }
+
+        return weekmenu;
+
     }
     [WebMethod]
     public Menu GetDagMenu()
     {
-        return service.GetDagmenu();
+        DateTime today = DateTime.Today;
+
+        if (!weekmenu.Any())
+        {
+            weekmenu = GetWeekMenu();
+        }
+
+        if (((int)(today.DayOfWeek)) > 5) return new Menu();
+        else return weekmenu[(int)(today.DayOfWeek)];
     }
 }

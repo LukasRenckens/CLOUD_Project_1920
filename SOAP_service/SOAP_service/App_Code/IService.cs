@@ -22,7 +22,7 @@ public interface IService
     [OperationContract]
     CompositeType GetDataUsingDataContract(CompositeType composite);
 
-    [OperationContract]
+    /*[OperationContract]
     List<Hoofdgerecht> GetHoofdgerechts();
     [OperationContract]
     List<Dagsoep> GetDagsoeps();
@@ -31,7 +31,7 @@ public interface IService
     [OperationContract]
     List<Menu> GetWeekmenu();
     [OperationContract]
-    Menu GetDagmenu();
+    Menu GetDagmenu();*/
 
 
 }
