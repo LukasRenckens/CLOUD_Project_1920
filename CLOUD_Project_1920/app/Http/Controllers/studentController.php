@@ -24,19 +24,34 @@ class studentController extends Controller
     
     public function search()
     {
-        return view("zoekformulier");
+        //return view("zoekformulier");
+        return view('zoekformulier_studenten');
         //
     }
 
-    
-    public function found(Request $request)
+    public function ingave(Request $request)
     {
-        // synchroon service oproepen = website ophalen
-        $mi = $request->minPrijs;
-        $ma = $request->maxPrijs;
+      
+        //$hallo = 100;
+        $goed  = 200;
+        $hallo = array("firstname", "lastname","straat", "vak", "huisnummer");
+        //return view('ingave_punten',compact($hallo,$goed));
+        return view('ingave_punten',['name'=>$hallo]);
+        //return view('ingave_punten',['name'=>'Virat Gandhi']);
        
-        return "JA hallo het werkt eindelijk";
     }
+   
+
+    public function print(Request $request)
+    {  
+        $min = $request->hallo[0];
+        $max = $request->hallo[1];
+        $size = sizeof($request->hallo);
+        return "De minimum prijs $min,$max";
+    }
+    
+
+    
     
     public function find_studentennummer(Request $request)
     {
@@ -44,7 +59,11 @@ class studentController extends Controller
         $naam = $request->naamS;
         $voornaam = $request->voornaamS;
         try {
-          $id = Student::where('voornaam', '=', $voornaam)->id;
+          //$id = Student::where('voornaam', '==', "$voornaam")->id;
+           $id = Student::where('voornaam',$voornaam)->get()->pluck('id'); //Lukas vraag
+           //$id = Student::where('voornaam',$voornaam)->get('id');
+
+           //SELECT * FROM `students` WHERE `voornaam` LIKE 'Niels'
         //return Laptop::all()->where('prijs', '<', 499);
         //->orWhere('prijs', 1499);
         }   
@@ -53,7 +72,7 @@ class studentController extends Controller
           return "Deze student heeft geen studentennummer";
         } 
        
-        return "Het studentennummer $id van $voornaam $naam:";
+        return "Het studentennummer van  $voornaam $naam: $id";
     }
      public function  find_naam_voornaam(Request $request)
     {
@@ -100,7 +119,7 @@ class studentController extends Controller
      */
     public function show($id)
     {
-        //
+        return $id*8;
     }
 
     /**
@@ -123,7 +142,7 @@ class studentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "hallo";
     }
 
     /**
