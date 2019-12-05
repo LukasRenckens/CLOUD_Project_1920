@@ -27,6 +27,8 @@ Route::post('punten/klasselect','PuntenToevoegenController@giveStudents');
 Route::post('punten/uploadPunten','PuntenToevoegenController@uploadPunten');
 
 
+Route::get('index', 'StudentController@index');
+
 
 Route::post('students/found','studentController@found');
 
@@ -35,5 +37,3 @@ Route::post('students/find_naam_voornaam','studentController@find_naam_voornaam'
 Route::resource('students','studentController');
 Route::resource('punten','PuntenToevoegenController');
 
-
-Route::get('index', 'StudentController@index');
