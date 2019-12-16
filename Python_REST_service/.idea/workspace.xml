@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/venv/Include/templates/klas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/klas1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/master.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TweedeProj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -86,6 +81,7 @@
       <workItem from="1576229063028" duration="1978000" />
       <workItem from="1576232109467" duration="16882000" />
       <workItem from="1576481013425" duration="3912000" />
+      <workItem from="1576485149389" duration="465000" />
     </task>
     <servers />
   </component>
@@ -106,6 +102,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Python_REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576485157805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576484580968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
   </component>
 </project>
