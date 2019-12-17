@@ -14,22 +14,13 @@
 namespace App\SOAP;
 
 class HelloRequest {
-    /**
-     * @var string
-     */
+
     protected $h;
 
-    /** 
-     * request constructor
-     * @param double $h 
-     */
     public function __contruct($h){
         $this->h = $h;
     }
-    
-    /**
-     * @return double
-     */
+
     public function getDagmenu(){
         return $this->h;
     }

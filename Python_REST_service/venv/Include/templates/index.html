@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+{% block header %}
+    <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Klassen</button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="/klas1">{{klas1}}</a>
+            <a class="dropdown-item" href="/klas2">{{klas2}}</a>
+            <a class="dropdown-item" href="/klas3">{{klas3}}</a>
+            <a class="dropdown-item" href="/klas4">{{klas4}}</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content%}
+    <p>Kies een van bovenstaande klassen om het uurrooster weer te geven.</p>
+{% endblock %}
+
