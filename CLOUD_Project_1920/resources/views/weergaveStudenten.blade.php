@@ -1,30 +1,19 @@
-@extends('master')
+@extends('index')
 
-@section('titel','zoek students')
 @section('eigen_inhoud')
 
-<html>
-        <hr/>
-        <p>Start print studenten</p>
-</html>
+@endsection
+@yield('test')
+@section('extra_inhoud')
 
-<html>
-   <body>
-            <?php
-                   
-                    //for ($x = 0; $x < sizeof($name); $x++) {
 
-                    for ($x = 0; $x < sizeof($studentNaam); $x++) {
-                         echo "The number is: $x en de waarde is $studentNaam[$x] <br>";
-                    }
-                    for ($x = 0; $x < sizeof($studentVoornaam); $x++) {
-                         echo "The number is: $x en de waarde is $studentVoornaam[$x] <br>";
-                    }
-            ?>
-   </body>
-</html>
 
-<html>
+            <div class="card">
+                <div class="card-header">Ingeven van punten in een klas</div>
+
+                <div class="card-body">
+                    
+                    <html>
         <hr/>
         <p>Geef de toets en punten in</p>
 </html>
@@ -48,7 +37,7 @@
                  
             </td> 
             <td>    
-                <input type='text' name='totaal' value='Algebraisch rekenen' />
+                <input type='text' name='titel' value='Algebraisch rekenen' />
             </td> 
         </tr>
         <tr>
@@ -57,7 +46,7 @@
                  
             </td> 
             <td>    
-                <input type='number' name='10' value='20' />
+                <input type='number' name='maximum' value='20' />
             </td> 
         </tr>
         <tr>
@@ -83,6 +72,7 @@
                     for ($x = 0; $x < sizeof($studentNaam); $x++) {
                         echo " <input type='hidden'  name='naam[]' value= '$studentNaam[$x]'>";
                         echo " <input type='hidden'  name='voornaam[]' value= '$studentVoornaam[$x]'>";
+                        echo " <input type='hidden'  name='studentennummer[]' value= '$sudentNummer[$x]'>";
                 }
                 ?>      
             </td>
@@ -101,3 +91,8 @@
         <hr/>
 </html>
 @stop
+                    
+                </div>
+            </div>
+
+

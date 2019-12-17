@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Testview</title>
-    </head>
-    <body>
-        <h1>Test</h1>
-        <hr/>
-        <p>Dit is een test view.</br>
-           Hier komt naderhand het inlogscherm of menu naar de veschillende services. 
-        </p>
-    </body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Platform Studenten en Docenten</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                 
+                    @yield('eigen_inhoud')
+                </div>
+            </div>
+                
+            @yield('extra_inhoud')
+            
+        </div>
+    </div>
+</div>
+@endsection

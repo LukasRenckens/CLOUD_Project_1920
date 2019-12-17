@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Klas;
@@ -36,7 +36,6 @@ class PuntenToevoegenController extends Controller
          print ("$studentenNaam[$i], $studentenVoornaam[$i] <br>");
         }
         
-        return;
         //return Klas::find(2)->klas;
     
     }
@@ -49,14 +48,14 @@ class PuntenToevoegenController extends Controller
           
         $studentenNaam = Student::all()->where('klas',$waarde)->pluck('naam');
         $studentenVoornaam = Student::all()->where('klas',$waarde)->pluck('voornaam');
-        
-        for ($i = 0; $i < sizeof($studentenNaam);$i++){
-         print ("$studentenNaam[$i], $studentenVoornaam[$i] <br>");
-        }
+        $studentenNummer = Student::all()->where('klas',$waarde)->pluck('id');
+       /*for ($i = 0; $i < sizeof($studentenNaam);$i++){
+        print ("$studentenNaam[$i], $studentenVoornaam[$i] <br>");
+       }*/
         
         $hallo = array($studentenNaam,$studentenVoornaam);
         //return view('ingave_punten',compact($hallo,$goed));
-        return view('weergavestudenten',['studentNaam'=>$studentenNaam,'studentVoornaam'=>$studentenVoornaam]);
+        return view('weergavestudenten',['studentNaam'=>$studentenNaam,'studentVoornaam'=>$studentenVoornaam, 'sudentNummer'=> $studentenNummer]);
 
         //return Klas::find(2)->klas;
     
@@ -68,15 +67,33 @@ class PuntenToevoegenController extends Controller
        // $max = $request->hallo[1];
         $studentNaam = $request->naam;
         $studentVoornaam = $request->voornaam;
+        $studentenNummer = $request->studentennummer;
         $punten = $request->punten;
+        $vak = $request->vak;
+        $titel = $request->titel;
+        $maximum = $request->maximum;
+
         $size = sizeof($request->punten);
         $size1 = sizeof($request->naam);
         $size2 = sizeof($request->voornaam);
+        
+        $klasTotaal = 0;
         print("De size = $size, $size1, $size2 <br>");
-        for ($i = 0; $i < $size;$i++){
-            print ("$studentNaam[$i] $studentVoornaam[$i] heeft $punten[$i] behaald <br>");
-            //print ("$punten[$i] behaald <br>");
+          for ($i = 0; $i < $size;$i++){
+           $klasTotaal += $punten[$i];
         }
+
+        $gemiddelde = $klasTotaal/$size;
+        for ($i = 0; $i < $size;$i++){
+            print ("Titel = $titel, id = $studentenNummer[$i], vak = $vak, naam= $studentNaam[$i], voornaam= $studentVoornaam[$i], behaald: = $punten[$i], maximum = $maximum <br>");
+            //print ("$punten[$i] behaald <br>");
+                    $data=array('titel'=>$titel,'studentennummer'=>$studentenNummer[$i],'vak'=>$vak,"naam"=>$studentNaam[$i],"voornaam"=>$studentVoornaam[$i],"behaald"=>$punten[$i],'maximum'=>$maximum,"gemiddelde"=> $gemiddelde);
+                    DB::table('punten')->insert($data);
+        }
+  
+        
+       // $data=array('titel'=>$titel,'id'=>$studentenNummer[$i],'vak'=>$vak,"naam"=>$studentNaam[$i],"voornaam"=>$studentVoornaam[$i],"behaald"=>$punten[$i],'maximum'=>$maximum);
+        //DB::table('punten')->insert($data);
         return "Ontvangen";
 
         //return Klas::find(2)->klas;

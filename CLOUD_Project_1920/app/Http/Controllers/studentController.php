@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+
 use Artisaninweb\SoapWrapper\SoapWrapper;
 use App\SOAP\HelloRequest;
 use App\SOAP\GetDagMenuRequest;
@@ -61,8 +62,8 @@ class studentController extends Controller
     
     public function search()
     {
-        //return view("zoekformulier");
-        return view('zoekformulier_studenten');
+        return view("studenten");
+        //return view('zoekformulier_studenten');
         //
     }
 
@@ -78,8 +79,15 @@ class studentController extends Controller
        
     }
    
+    public function afprinten()
+    {
+        return ("HALLO");
+       // return view("test");
+        //return view('zoekformulier_studenten');
+        //
+    }
 
-    public function print(Request $request)
+    public function print()
     {  
         $min = $request->hallo[0];
         $max = $request->hallo[1];
@@ -179,8 +187,10 @@ class studentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return "hallo";
+        return ("HALLO");
     }
+    
+   
 
     /**
      * Remove the specified resource from storage.
