@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/SOAP_service/App_Code/WebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/SOAP_service/App_Code/WebService.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +85,8 @@
       <workItem from="1576229063028" duration="1978000" />
       <workItem from="1576232109467" duration="16882000" />
       <workItem from="1576481013425" duration="3912000" />
-      <workItem from="1576485149389" duration="465000" />
+      <workItem from="1576485149389" duration="466000" />
+      <workItem from="1576568122916" duration="1150000" />
     </task>
     <servers />
   </component>
@@ -102,7 +107,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576485157805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
+    <SUITE FILE_PATH="coverage/Python_REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576568781574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576484580968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
   </component>
 </project>

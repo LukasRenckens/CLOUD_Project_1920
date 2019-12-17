@@ -64,6 +64,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public List<Dagsoep> GetDagsoeps()
     {
+
         string connectionString = "Data Source=prjcloudserver.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#CLOUD_project;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
         SqlCommand command = new SqlCommand("SELECT * FROM Dagsoep", connection);
