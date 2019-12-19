@@ -65,17 +65,20 @@ class PuntenToevoegenController extends Controller
     {   
        // $min = $request->punten[0];
        // $max = $request->hallo[1];
-        $studentNaam = $request->naam;
-        $studentVoornaam = $request->voornaam;
-        $studentenNummer = $request->studentennummer;
-        $punten = $request->punten;
-        $vak = $request->vak;
-        $titel = $request->titel;
-        $maximum = $request->maximum;
+       // $studentNaam = $request->naam;
+       // $studentVoornaam = $request->voornaam;
+        //$studentenNummer = $request->studentennummer;
+       // $punten = $request->punten;
+       // $vak = $request->vak;
+       // $titel = $request->titel;
+       // $maximum = $request->maximum;
 
-        $size = sizeof($request->punten);
-        $size1 = sizeof($request->naam);
-        $size2 = sizeof($request->voornaam);
+        
+        //$size = sizeof($punten);
+        //$size = sizeof($request->punten);
+       
+        /*
+         *  $size2 = sizeof($request->voornaam);
         
         $klasTotaal = 0;
         print("De size = $size, $size1, $size2 <br>");
@@ -90,11 +93,29 @@ class PuntenToevoegenController extends Controller
                     $data=array('titel'=>$titel,'studentennummer'=>$studentenNummer[$i],'vak'=>$vak,"naam"=>$studentNaam[$i],"voornaam"=>$studentVoornaam[$i],"behaald"=>$punten[$i],'maximum'=>$maximum,"gemiddelde"=> $gemiddelde);
                     DB::table('punten')->insert($data);
         }
-  
+         * 
+         */
         
-       // $data=array('titel'=>$titel,'id'=>$studentenNummer[$i],'vak'=>$vak,"naam"=>$studentNaam[$i],"voornaam"=>$studentVoornaam[$i],"behaald"=>$punten[$i],'maximum'=>$maximum);
-        //DB::table('punten')->insert($data);
-        return "Ontvangen";
+        //$data=array('titel'=>$titel,'id'=>$studentenNummer[$i],'vak'=>$vak,"naam"=>$studentNaam[$i],"voornaam"=>$studentVoornaam[$i],"behaald"=>$punten[$i],'maximum'=>$maximum);
+            //DB::table('punten')->insert($data);
+            
+        //return $studentNaam;
+        return "gelukt";
+        //return Klas::find(2)->klas;
+    
+    }
+    
+     public function uploadTest(Request $request)
+    {   
+        $studentNaam = $request->naam;
+        $studentVoornaam = $request->voornaam;
+        $studentennummer = $request->studentennummer;
+       // $min = $request->punten[0];
+       // $max = $request->hallo[1];
+       // $studentNaam = $request->naam;
+       // $studentVoornaam = $request->voornaam;
+      
+        return $studentNaam;
 
         //return Klas::find(2)->klas;
     
