@@ -18,10 +18,9 @@
         <p>Geef de toets en punten in</p>
 </html>
 
-<form> 
+<form action="/punten/uploadPunten" method ="post"> 
     <!--- hier hoeft dus geen post enzo meer te staan, zie zoekformulier.blad.php,
-    het uploaden wordt in de javascript gedaan via een get en geen POST 
-    <form action="/punten/uploadPunten" method ="post">-->
+    het uploaden wordt in de javascript gedaan via een get en geen POST -->
     @csrf
     <!--   commentaar -->
     <table>
@@ -84,7 +83,7 @@
                 ?>      
             </td>
             <td> 
-                    <input type='button' value="Insturen" onclick="printHelloWorld()"/>        <!-- button was submit -->
+                    <input type='submit' value="Insturen" onclick="printHelloWorld()"/>     
                    
             </td> 
            
@@ -102,8 +101,6 @@
                     
                 </div>
             </div>
-<div id="laptops"> </div>
-<div id="lukas"> </div>
 
 
 <script type="text/javascript">
@@ -120,28 +117,18 @@
         var maximum = document.getElementById("maximum");
         var size = document.getElementById("size");
         
-        var hallo = document.getElementById("$studentVoornaam")
-        
         var error = 0;
-        var fruits = ["Banana", "Orange", "Apple", "Mango"];
-        document.getElementById("laptops").innerHTML = "Controleren of het goed gaat";
         
         txt = txt + "Vak: " + vak.value +"\n";
         txt = txt + "Titel: " + titel.value+"\n";
         txt = txt + "Totale punten: " + maximum.value+"\n\n";
-        var naam_a=[];
-        var voornaam_a=[];
-        var punten_a=[];
-        var studentennummer_a=[];
+      
         for(count = 0; count < size.value; count++) {
                var punt = document.getElementById("punt["+count+"]");
                var naam = document.getElementById("naam["+count+"]");
                var voornaam = document.getElementById("voornaam["+count+"]");
                var studentennummer = document.getElementById("studentennummer["+count+"]");
-               naam_a.push(naam.value); 
-               voornaam_a.push(voornaam.value);
-               punten_a.push(punt.value);
-               studentennummer_a.push(studentennummer.value);
+               
                if(punt.value > parseFloat(maximum.value) || punt.value < 0){  
                     alert(punt.value + ' > ' + parseFloat(maximum.value) );
                     punt.style.backgroundColor = "red";
@@ -166,31 +153,7 @@
             txt = "You pressed Cancel!";
             // Op de pagina blijven voor aanpassingen te doen
        }
-       
-       let content = {some: 'content'}
-       //{naam}/{voornaam}/{studentennummer}/{punten}/{vak}/{titel}/{maximum}
-       //http://127.0.0.1:8000/api/punten/uploadTest/" + naam_a + "/" + voornaam_a+ "/" + studentennummer_a + "/" + punten_a + "/" + vak.value + "/" + titel.value+ "/" +maximum.value
-       //fetch("http://127.0.0.1:8000/api/punten/uploadTest/" + naam_a + "/" + voornaam_a+ "/" + studentennummer_a + "/" + punten_a +"/"+vak.value +"/" + titel.value+"/" + maximum.value + "/",
-       fetch("http://127.0.0.1:8000/api/punten/uploadTest/",
-           {method: "post",
-           headers: {'Content-Type': 'application/json'} 
-           body: JSON.stringify(content)} ) //verder werken
-                .then(response => {if (response.ok) return response.text();
-                                  else Promise.reject("Problem sending data");
-                                  })
-                .then(showLaptops)
-                .catch(err => alert(err));
-       
-       document.getElementById("lukas").innerHTML = "TEST";
-       
        alert(txt);
-        
-    }
-       function showLaptops(jsonData){
-        alert("test");
-        document.getElementById("laptops").innerHTML = "Deze text";
-        //document.getElementById("laptops").innerHTML = jsonData;
-        alert("oke");
         
     }
     

@@ -39,7 +39,9 @@ Route::post('students/print','studentController@print');
 Route::post('students/found','studentController@found');
 Route::post('students/find_studentennummer','studentController@find_studentennummer');
 Route::post('punten/klasselect','PuntenToevoegenController@giveStudents');
-Route::post('punten/uploadPunten','PuntenToevoegenController@uploadPunten');
+Route::get('punten/uploadPunten','PuntenToevoegenController@uploadPunten');
+
+//Route::post('punten/uploadPunten','PuntenToevoegenController@uploadPunten');
 
 Route::resource('docent','DocentController');
 
