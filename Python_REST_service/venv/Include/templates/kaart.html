@@ -1,0 +1,149 @@
+{% extends "master.html" %}
+{% block top %}
+<a href="/" style="text-decoration: none;">Terug naar klasselectie</a>
+
+{% endblock top %}
+{% block content%}
+<body>
+  <div style="width: 640px">
+    <form action="" method="post">
+    <div class="form-group">
+      <label for="adres">Vertrek adres:</label>
+      <input type="text" class="form-control" id="adres" placeholder="Adres">
+    </div>
+    <div class="form-group">
+      <label for="aankomst">Beginuur les:</label>
+      <input type="text" class="form-control" id="aankomst" placeholder="Beginuur">
+    </div>
+    <input type="button" class="btn btn-primary" name="Calculate route" value="Bereken route" onclick="calculateRoute()"/><br>
+    </form><br>
+  </div>
+
+  <div style="width: 640px; height: 480px" id="mapContainer"></div>
+
+  <script type="text/javascript" charset="utf-8">
+    //Source: https://developer.here.com/documentation/maps/dev_guide/index.html
+    //---------------------------------------------- Map initialization ----------------------------------------------
+    var platform = new H.service.Platform({
+      'apikey': 'zYFGKXykcEiu7qVkDbjpkaQKR1rpKVVUgQSRkVZJQVg'
+    });
+    var defaultLayers = platform.createDefaultLayers();
+    var map = new H.Map(
+      document.getElementById('mapContainer'),
+      defaultLayers.vector.normal.map,
+      {
+        zoom: 12,
+        center: { lng: 5.392200, lat: 50.925823 } //Uhasselt
+      });
+    var ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
+    //------------------------------------------------ Map events -----------------------------------------------------
+    var mapEvents = new H.mapevents.MapEvents(map);
+    map.addEventListener('tap', function(evt) {
+        console.log(evt.type, evt.currentPointer.type);
+    });
+    var behavior = new H.mapevents.Behavior(mapEvents);
+    //------------------------------------------------- UHasselt -------------------------------------------------------
+    var bubble = new H.ui.InfoBubble({ lng: 5.392200, lat: 50.925823 }, {
+              content: 'UHasselt'
+           });
+    ui.addBubble(bubble);
+    //-------------------------------------------------- Geocode -------------------------------------------------------
+    // // Create the parameters for the geocoding request:
+    // var geocodingParams = {
+    //       searchText: 'Torenstraat 4, 3941 Hechtel-Eksel, Belgium'
+    //     };
+    // // Define a callback function to process the geocoding response:
+    // var onResult = function(result) {
+    //   var locations = result.Response.View[0].Result,
+    //       position,
+    //       marker;
+    //   // Add a marker for each location found
+    //    for (i = 0;  i < locations.length; i++) {
+    //      position = {
+    //        lat: locations[i].Location.DisplayPosition.Latitude,
+    //        lng: locations[i].Location.DisplayPosition.Longitude
+    //      };
+    //   //   marker = new H.map.Marker(position);
+    //   //   map.addObject(marker);
+    //   }
+    // };
+    // // Get an instance of the geocoding service:
+    // var geocoder = platform.getGeocodingService();
+    // // Call the geocode method with the geocoding parameters the callback and an error callback function (called if a communication error occurs):
+    // geocoder.geocode(geocodingParams, onResult, function(e) {
+    //   alert(e);
+    // });
+    //----------------------------------------------- Route calculation ----------------------------------------------
+    function calculateRoute(){
+      var adres = document.getElementById("adres").value;
+      var geocodingParams = {
+            searchText: adres
+          };
+      var geocoder = platform.getGeocodingService();
+      geocoder.geocode(geocodingParams, onGeoResult, function(e) {alert(e);});
+
+      var routingParameters = {
+        'mode': 'fastest;car',
+        'waypoint0': 'geo!51,5', //User location
+        //'waypoint0': , //User location
+        'waypoint1': 'geo!50.925823,5.392200', //UHasselt
+        'representation': 'display'
+      };
+
+      var router = platform.getRoutingService();
+      router.calculateRoute(routingParameters, onRouteResult, function(error) {alert(error.message);});
+    }
+    function myFunction() {
+      return Math.PI;
+    }
+
+    var onGeoResult = function (result) {
+      var locations = result.Response.View[0].Result, position, marker;
+      for (i = 0;  i < locations.length; i++) {
+        position = {
+          lat: locations[i].Location.DisplayPosition.Latitude,
+          lng: locations[i].Location.DisplayPosition.Longitude
+        };
+
+        marker = new H.map.Marker(position);
+        map.addObject(marker);
+      }
+      return position
+    };
+    var onRouteResult = function(result) {
+      var route, routeShape, startPoint, endPoint, linestring;
+      if(result.response.route) {
+        route = result.response.route[0];
+        routeShape = route.shape;
+
+        linestring = new H.geo.LineString();
+
+        routeShape.forEach(function(point) {
+          var parts = point.split(',');
+          linestring.pushLatLngAlt(parts[0], parts[1]);
+        });
+
+        startPoint = route.waypoint[0].mappedPosition;
+        endPoint = route.waypoint[1].mappedPosition;
+
+        var routeLine = new H.map.Polyline(linestring, {
+          style: { strokeColor: 'blue', lineWidth: 3 }
+        });
+
+        var startMarker = new H.map.Marker({
+          lat: startPoint.latitude,
+          lng: startPoint.longitude
+        });
+
+        var endMarker = new H.map.Marker({
+          lat: endPoint.latitude,
+          lng: endPoint.longitude
+        });
+
+        map.addObjects([routeLine, startMarker, endMarker]);
+        map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
+      }
+    };
+  </script>
+</body>
+{% endblock content %}

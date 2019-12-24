@@ -1,8 +1,77 @@
 {% extends "master.html" %}
-{% block header%}
-        <a href="/" style="text-decoration: none;">Terug naar klasselectie</a>
-{% endblock %}
+{% block top%}
+  <a href="/" style="text-decoration: none;">Terug naar klasselectie</a></br>
+{% endblock top%}
 {% block content%}
-    <p>{{data}}</p>
-{% endblock %}
+<body onload="loadData()">
+  <table class="table" id="uurroostertabel">
+    <thead>
+      <tr>
+        <th scope="col">Dag</th>
+        <th scope="col">Beginuur</th>
+        <th scope="col">Einduur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row" id="maandag">{{test}}</td>
+        <td id="MaB"></td>
+        <td id="MaE"></td>
+      </tr>
+      <tr>
+        <td scope="row" id="dinsdag"></td>
+        <td id="DiB"></td>
+        <td id="DiE"></td>
+      </tr>
+      <tr>
+        <td scope="row" id="woensdag"></td>
+        <td id="WoeB"></td>
+        <td id="WoeE"></td>
+      </tr>
+      <tr>
+        <td scope="row" id="donderdag"></td>
+        <td id="DoB"></td>
+        <td id="DoE"></td>
+      </tr>
+    <tr>
+        <td scope="row" id="vrijdag"></td>
+        <td id="VrB"></td>
+        <td id="VrE"></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="/kaart" style="text-decoration: none;">Bereken route</a>
+
+  <script type="text/javascript">
+        function loadData() {
+            if("{{dag}}" != 0 & "{{beginuur}}" != 0 & "{{einduur}}"!= 0 ){
+              document.getElementById("maandag").innerHTML = "{{dag[0]}}";
+              document.getElementById("dinsdag").innerHTML = "{{dag[1]}}";
+              document.getElementById("woensdag").innerHTML = "{{dag[2]}}";
+              document.getElementById("donderdag").innerHTML = "{{dag[3]}}";
+              document.getElementById("vrijdag").innerHTML = "{{dag[4]}}";
+
+              document.getElementById("MaB").innerHTML = "{{beginuur[0]}}";
+              document.getElementById("DiB").innerHTML = "{{beginuur[1]}}";
+              document.getElementById("WoeB").innerHTML = "{{beginuur[2]}}";
+              document.getElementById("DoB").innerHTML = "{{beginuur[3]}}";
+              document.getElementById("VrB").innerHTML = "{{beginuur[4]}}";
+
+              document.getElementById("MaE").innerHTML = "{{einduur[0]}}";
+              document.getElementById("DiE").innerHTML = "{{einduur[1]}}";
+              document.getElementById("WoeE").innerHTML = "{{einduur[2]}}";
+              document.getElementById("DoE").innerHTML = "{{einduur[3]}}";
+              document.getElementById("VrE").innerHTML = "{{einduur[4]}}";
+            }
+            else{
+              alert("Geen data gevonden.")
+            }
+        }
+  </script>
+</body>
+{% endblock content %}
+{% block bottom %}
+{% endblock bottom %}
+
+
 

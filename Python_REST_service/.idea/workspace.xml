@@ -2,13 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_11_091250_create_roles_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_11_091533_create_role_user_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_16_085717_create_uurrooster_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_16_085717_create_uurrooster_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/templates/klas.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/klas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/master.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/config/applicationhost.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/SOAP_service/App_Code/WebService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/SOAP_service/App_Code/WebService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../info.txt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +30,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -29,24 +42,17 @@
   </component>
   <component name="ProjectId" id="1UvFCZMSakTdnVfTUHKkeXkf3Pp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python">
@@ -72,6 +78,18 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -86,7 +104,13 @@
       <workItem from="1576232109467" duration="16882000" />
       <workItem from="1576481013425" duration="3912000" />
       <workItem from="1576485149389" duration="466000" />
-      <workItem from="1576568122916" duration="1150000" />
+      <workItem from="1576568122916" duration="2623000" />
+      <workItem from="1576575409759" duration="4366000" />
+      <workItem from="1576679075693" duration="53000" />
+      <workItem from="1576679270592" duration="5548000" />
+      <workItem from="1576739883574" duration="12307000" />
+      <workItem from="1577106105213" duration="10535000" />
+      <workItem from="1577191561992" duration="3671000" />
     </task>
     <servers />
   </component>
@@ -106,8 +130,26 @@
       </map>
     </option>
   </component>
+  <component name="WindowStateProjectService">
+    <state width="746" height="130" key="GridCell.Tab.0.bottom" timestamp="1577195282779">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="130" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577195282779" />
+    <state width="746" height="130" key="GridCell.Tab.0.center" timestamp="1577195282778">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="130" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577195282778" />
+    <state width="746" height="130" key="GridCell.Tab.0.left" timestamp="1577195282778">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="130" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577195282778" />
+    <state width="746" height="130" key="GridCell.Tab.0.right" timestamp="1577195282778">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="130" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577195282778" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Python_REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576568781574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1576484580968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
+    <SUITE FILE_PATH="coverage/Python_REST_service$app.coverage" NAME="app Coverage Results" MODIFIED="1577191613520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
   </component>
 </project>

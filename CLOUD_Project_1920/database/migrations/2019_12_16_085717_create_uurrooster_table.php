@@ -15,10 +15,10 @@ class CreateUurroosterTable extends Migration
     {
         Schema::create('uurrooster', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('klas');
-            $table->text('dag');
-            $table->time('beginuur');
-            $table->time('einduur');
+            $table->string('klas');
+            $table->string('dag');
+            $table->string('beginuur');
+            $table->string('einduur');
             $table->timestamps();
         });
     }
