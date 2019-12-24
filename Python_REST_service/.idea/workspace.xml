@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_11_091250_create_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_11_091533_create_role_user_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_16_085717_create_uurrooster_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CLOUD_Project_1920/database/migrations/2019_12_16_085717_create_uurrooster_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/static/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/klas.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/klas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAP_service/.vs/SOAP_service/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/templates/kaart.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/kaart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +94,7 @@
       <workItem from="1576679270592" duration="5548000" />
       <workItem from="1576739883574" duration="12307000" />
       <workItem from="1577106105213" duration="10535000" />
-      <workItem from="1577191561992" duration="3671000" />
+      <workItem from="1577191561992" duration="4508000" />
     </task>
     <servers />
   </component>
