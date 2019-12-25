@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% extends "master.html" %}
 {% block top %}
 <a href="/" style="text-decoration: none;">Terug naar klasselectie</a>
@@ -5,117 +6,171 @@
 {% endblock top %}
 {% block content%}
 <body>
-  <div style="width: 640px">
-    <form action="kaart" method="get">
-    <div class="form-group">
-      <label for="adres">Vertrek adres:</label>
-      <input type="text" class="form-control" id="adres" placeholder="Adres">
-    </div>
-    <div class="form-group">
-      <label for="aankomst">Beginuur les:</label>
-      <input type="text" class="form-control" id="aankomst" placeholder="Beginuur">
-    </div>
-    <input type="button" class="btn btn-primary" name="Calculate route" value="Bereken route" onclick="calculateRoute()"/><br>
-    </form><br>
-  </div>
+<table class="table table-sm" border="0">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Route berekening</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div style="width: 555px;">
+          <form action="kaart" method="post">
+            <div class="form-group">
+              <label for="adres">Vertrek adres:</label>
+              <input type="text" class="form-control" id="adres" placeholder="Adres"/>
+              <small id="adresHelp" class="form-text text-muted">Formaat: Straat nr., Postcode Stad/Gemeente, Land (bv. Sepulkrijnenlaan 51, 3500 Hasselt, België)</small>
+            </div>
+            <!--<div class="form-group">
+              <label for="aankomst">Beginuur les:</label>
+              <input type="text" class="form-control" id="aankomst" placeholder="Beginuur"/>
+            </div>-->
+            <input type="button" class="btn btn-secondary" name="Calculate route" value="Bereken route" onclick="calculateRoute()"/>
+          </form>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+</table>
 
-  <div style="width: 640px; height: 480px" id="mapContainer"></div>
+<table class="table table-sm">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Route informatie</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Afstand</th>
+      <td id="afstand">0km</td>
+    </tr>
+    <tr>
+      <th scope="row">Vertraging</th>
+      <td id="vertraging">0u0m0s</td>
+    </tr>
+    <tr>
+      <th scope="row">Totale reistijd</th>
+      <td id="reistijd">0u0m0s</td>
+    </tr>
+  </tbody>
+</table>
 
-  <script type="text/javascript" charset="utf-8">
-    //Source: https://developer.here.com/documentation/maps/dev_guide/index.html
-    //---------------------------------------------- Map initialization ----------------------------------------------
-    var platform = new H.service.Platform({'apikey': 'zYFGKXykcEiu7qVkDbjpkaQKR1rpKVVUgQSRkVZJQVg'});
-    var defaultLayers = platform.createDefaultLayers();
-    var map = new H.Map(
-    document.getElementById('mapContainer'),
-    defaultLayers.vector.normal.map,
-    {
-      zoom: 12,
-      center: { lng: 5.392200, lat: 50.925823 } //Uhasselt
-    });
-    var ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
-    //------------------------------------------------ Map events -----------------------------------------------------
-    var mapEvents = new H.mapevents.MapEvents(map);
+<div style="width: 1110px; height: 480px" id="mapContainer"></div><br>
 
-    map.addEventListener('tap', function(evt) {
-      console.log(evt.type, evt.currentPointer.type);
-    });
-    var behavior = new H.mapevents.Behavior(mapEvents);
-    //------------------------------------------------- UHasselt -------------------------------------------------------
-    var bubble = new H.ui.InfoBubble({ lng: 5.392200, lat: 50.925823 }, {
-      content: 'UHasselt'
-    });
-    ui.addBubble(bubble);
-    //----------------------------------------------- Route calculation ------------------------------------------------
-    function calculateRoute(){
-      var start = [];
-      var adres = document.getElementById("adres").value;
-      var geocodingParams = {searchText: adres};
+<script type="text/javascript" charset="utf-8">
+  //Source: https://developer.here.com/documentation/maps/dev_guide/index.html
+  //---------------------------------------------- Map initialization ----------------------------------------------
+  var platform = new H.service.Platform({'apikey': 'zYFGKXykcEiu7qVkDbjpkaQKR1rpKVVUgQSRkVZJQVg'});
+  var defaultLayers = platform.createDefaultLayers();
+  var map = new H.Map(
+  document.getElementById('mapContainer'),
+  defaultLayers.vector.normal.map,
+  {
+    zoom: 12,
+    center: { lng: 5.392200, lat: 50.925823 } //Uhasselt
+  });
+  var ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
+  //------------------------------------------------ Map events -----------------------------------------------------
+  var mapEvents = new H.mapevents.MapEvents(map);
+
+  map.addEventListener('tap', function(evt) {
+    console.log(evt.type, evt.currentPointer.type);
+  });
+  var behavior = new H.mapevents.Behavior(mapEvents);
+  //------------------------------------------------- UHasselt -------------------------------------------------------
+  var bubble = new H.ui.InfoBubble({ lng: 5.392200, lat: 50.925823 }, {
+    content: 'UHasselt'
+  });
+  ui.addBubble(bubble);
+  //----------------------------------------------- Route calculation ------------------------------------------------
+  function calculateRoute(){
+    var start = [];
+    var adres = document.getElementById("adres").value;
+    var geocodingParams = {searchText: adres};
+
+    var onResult = function(result) {
+      var locations = result.Response.View[0].Result, position, marker;
+      for (let i = 0;  i < locations.length; i++) {
+        position = {
+          lat: locations[i].Location.DisplayPosition.Latitude,
+          lng: locations[i].Location.DisplayPosition.Longitude
+        };
+      //marker = new H.map.Marker(position);
+      //map.addObject(marker);
+      }
+
+      start[0] = position.lat;
+      start[1] = position.lng;
+
+      var routingParameters = {
+        'mode': 'fastest;car;traffic:enabled',
+        'waypoint1': 'geo!50.925823,5.392200', //UHasselt
+        'representation': 'display',
+        'routeAttributes': 'summary'
+      };
+
+      routingParameters["waypoint0"] = start; //User location
 
       var onResult = function(result) {
-        var locations = result.Response.View[0].Result, position, marker;
-        for (let i = 0;  i < locations.length; i++) {
-          position = {
-            lat: locations[i].Location.DisplayPosition.Latitude,
-            lng: locations[i].Location.DisplayPosition.Longitude
-          };
-        //marker = new H.map.Marker(position);
-        //map.addObject(marker);
+        var route, routeShape, startPoint, endPoint, linestring;
+
+        if (result.response.route) {
+          route = result.response.route[0];
+          routeShape = route.shape;
+
+          route.summary.trafficTime;
+
+          var afstand = route.summary.distance/1000;
+
+          var vUur = Math.floor((route.summary.trafficTime - route.summary.baseTime)/3600);
+          var vMin = Math.floor((route.summary.trafficTime - route.summary.baseTime)/60);
+          var vSec = Math.floor((route.summary.trafficTime - route.summary.baseTime)%60);
+
+          var rtUur = Math.floor(route.summary.travelTime/3600);
+          var rtMin = Math.floor(route.summary.travelTime/60);
+          var rtSec = Math.floor(route.summary.travelTime%60);
+
+          document.getElementById("afstand").innerHTML = afstand + 'km';
+          document.getElementById("vertraging").innerHTML = vUur + 'u' + vMin + 'm' + vSec + 's';
+          document.getElementById("reistijd").innerHTML = rtUur + 'u' + rtMin + 'm' + rtSec + 's';
+
+          linestring = new H.geo.LineString();
+
+          routeShape.forEach(function (point) {
+            var parts = point.split(',');
+            linestring.pushLatLngAlt(parts[0], parts[1]);
+          });
+
+          startPoint = route.waypoint[0].mappedPosition;
+          endPoint = route.waypoint[1].mappedPosition;
+
+          var routeLine = new H.map.Polyline(linestring, {
+            style: {strokeColor: 'blue', lineWidth: 3}
+          });
+
+          var startMarker = new H.map.Marker({
+            lat: startPoint.latitude,
+            lng: startPoint.longitude
+          });
+
+          var endMarker = new H.map.Marker({
+            lat: endPoint.latitude,
+            lng: endPoint.longitude
+          });
+
+          map.addObjects([routeLine, startMarker, endMarker]);
+          map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
         }
-
-        start[0] = position.lat;
-        start[1] = position.lng;
-
-        var routingParameters = {
-        'mode': 'fastest;car',
-        'waypoint1': 'geo!50.925823,5.392200', //UHasselt
-        'representation': 'display'
-        };
-
-        routingParameters["waypoint0"] = start; //User location
-
-        var onResult = function(result) {
-          var route, routeShape, startPoint, endPoint, linestring;
-
-          if (result.response.route) {
-            route = result.response.route[0];
-            routeShape = route.shape;
-
-            linestring = new H.geo.LineString();
-
-            routeShape.forEach(function (point) {
-              var parts = point.split(',');
-              linestring.pushLatLngAlt(parts[0], parts[1]);
-            });
-
-            startPoint = route.waypoint[0].mappedPosition;
-            endPoint = route.waypoint[1].mappedPosition;
-
-            var routeLine = new H.map.Polyline(linestring, {
-              style: {strokeColor: 'blue', lineWidth: 3}
-            });
-
-            var startMarker = new H.map.Marker({
-              lat: startPoint.latitude,
-              lng: startPoint.longitude
-            });
-
-            var endMarker = new H.map.Marker({
-              lat: endPoint.latitude,
-              lng: endPoint.longitude
-            });
-
-            map.addObjects([routeLine, startMarker, endMarker]);
-            map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
-          }
-        };
-        var router = platform.getRoutingService();
-        router.calculateRoute(routingParameters, onResult, function(error) {alert(error.message);});
-
       };
-      var geocoder = platform.getGeocodingService();
-      geocoder.geocode(geocodingParams, onResult, function(e) {alert(e);});
-    }
-  </script>
+      var router = platform.getRoutingService();
+      router.calculateRoute(routingParameters, onResult, function(error) {alert(error.message);});
+
+    };
+    var geocoder = platform.getGeocodingService();
+    geocoder.geocode(geocodingParams, onResult, function(e) {alert(e);});
+  }
+</script>
 </body>
 {% endblock content %}
