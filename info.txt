@@ -12,8 +12,7 @@ Bootstrap
 https://getbootstrap.com/docs/4.4/getting-started/introduction/
 
 HERE maps API
-rest: https://developer.here.com/documentation/routing/dev_guide/topics/request-a-simple-route.html
-js: https://developer.here.com/documentation/maps/dev_guide/topics/routing.html
-beginner tutorial: https://developer.here.com/blog/who-wants-ice-cream-a-here-maps-api-for-javascript-tutorial-part-1-basic-map-set-up?cid=email-onboarding-IR-Here-Freemium%20Onboarding-create-a-map&utm_source=email&utm_medium=email&utm_campaign=Dev_Freemium_Onboarding&mkt_tok=eyJpIjoiTm1ReU1UZ3hOVEJrTWpsayIsInQiOiJvQ2RCVmY4ZjJYY2lcL0lybFNvWDJObkxHdGt5a0NWWWdmMHFKSGVPdG1RTGZGaWhpY1VjNnNuN1pNYmZMOEFlbko0bEVRa0dETzdudzIzQm1GUDZTK2RVeWJ0VWRsRWMzTWltSTlKZVFXam9zOFhBRUR6M0pBQmZoRmVqQXZ1SisifQ%3D%3D
-					https://developer.here.com/documentation/maps/dev_guide/topics/get-started.html
-					https://developer.here.com/develop/javascript-api
+js: https://developer.here.com/documentation/maps/dev_guide/topics/index.html
+
+
+https://stackoverflow.com/questions/7609276/javascript-function-order-why-does-it-matter

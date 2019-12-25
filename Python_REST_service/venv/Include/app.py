@@ -178,10 +178,6 @@ def klas4():
 def kaart():
     return render_template('kaart.html')
 
-# @app.route('/RouteBerekning')
-# def routeBerekening():
-#     return render_template('routeBerekening.html')
-
 if __name__ == '__main__':
     app.run(debug=True)
 
