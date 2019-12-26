@@ -89,10 +89,11 @@ class studentController extends Controller
         //Source: https://github.com/AntoineAugusti/google-books
         $client = new Client(['base_uri' => 'https://www.googleapis.com/books/v1/']);
         $fetcher = new Fetcher($client);
-        $book = $fetcher->forISBN('9789022322338');
+        $book = $fetcher->forISBN('9789022322338'); //Harry Potter
+        $books = $fetcher->forSearchTerm('Harry potter');
         
-        
-        return var_dump($book);
+        return view("boeken")->with("books",$books);
+        //return var_dump($book);
     }
 
     public function search()
