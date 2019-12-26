@@ -48,6 +48,9 @@ Route::resource('docent','DocentController');
 
 Route::get('index', 'StudentController@index');
 
+//Routes voor het oproepen van de C# SOAP
+Route::get('dagmenu', 'StudentController@GetDagmenu');
+Route::get('weekmenu', 'StudentController@GetWeekmenu');
 
 Route::post('students/found','studentController@found');
 

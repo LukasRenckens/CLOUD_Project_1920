@@ -6,22 +6,17 @@
  * and open the template in the editor.
  */
 
+namespace App\SOAP;
+
 /**
- * Description of request
+ * Description of GetDagMenuRequest
  *
  * @author lukas
  */
-namespace App\SOAP;
-
-class HelloRequest {
-
-    protected $h;
-
-    public function __contruct($h){
-        $this->h = $h;
-    }
-
-    public function getDagmenu(){
-        return $this->h;
+class GetWeekMenuRequest {
+    /**
+     * Constructor
+     */
+    public function __contruct(){
     }
 }

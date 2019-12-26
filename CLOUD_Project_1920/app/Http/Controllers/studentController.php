@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 
 use Artisaninweb\SoapWrapper\SoapWrapper;
-use App\SOAP\HelloRequest;
+use App\SOAP\GetDagMenuRequest;
 use App\SOAP\GetDagMenuRequest;
 
 class studentController extends Controller
@@ -42,6 +42,9 @@ class studentController extends Controller
 //        
 //        return $h;
 //        
+
+    }
+    public function getDagMenu(){
         $oSoapWrapper = new SoapWrapper();
         $oSoapWrapper->add('WebService', function ($oService){
             $oService
@@ -59,6 +62,23 @@ class studentController extends Controller
         echo json_encode($result);
     }
     
+    public function getWeekMenu(){
+        $oSoapWrapper = new SoapWrapper();
+        $oSoapWrapper->add('WebService', function ($oService){
+            $oService
+                ->wsdl('http://localhost:65266/WebService.asmx?WSDL')
+                ->trace(true)
+                ->classmap([
+                GetWeekMenuRequest::class
+                ]);
+        });
+        $Response = $oSoapWrapper->call('WebService.GetWeekMenu',[
+                new GetWeekMenuRequest()
+            ]);
+        $result = ($Response->GetWeekMenuResult);
+        
+        echo json_encode($result);
+    }
     
     public function search()
     {
