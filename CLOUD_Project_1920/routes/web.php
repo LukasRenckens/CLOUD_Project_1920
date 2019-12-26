@@ -49,8 +49,11 @@ Route::resource('docent','DocentController');
 Route::get('index', 'StudentController@index');
 
 //Routes voor het oproepen van de C# SOAP
-Route::get('dagmenu', 'StudentController@GetDagmenu');
-Route::get('weekmenu', 'StudentController@GetWeekmenu');
+Route::get('dagmenu', 'StudentController@getDagmenu');
+Route::get('weekmenu', 'StudentController@getWeekmenu');
+
+//Route voor Google books API
+Route::get('boeken', 'StudentController@getBoek');
 
 Route::post('students/found','studentController@found');
 

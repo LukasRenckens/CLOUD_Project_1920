@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
-
+//C# SOAP
 use Artisaninweb\SoapWrapper\SoapWrapper;
 use App\SOAP\GetDagMenuRequest;
-use App\SOAP\GetDagMenuRequest;
+use App\SOAP\GetWeekMenuRequest;
+//Google books API
+use AntoineAugusti\Books\Fetcher;
+use GuzzleHttp\Client;
 
 class studentController extends Controller
 {
@@ -45,6 +48,7 @@ class studentController extends Controller
 
     }
     public function getDagMenu(){
+        //source: https://github.com/artisaninweb/laravel-soap
         $oSoapWrapper = new SoapWrapper();
         $oSoapWrapper->add('WebService', function ($oService){
             $oService
@@ -63,6 +67,7 @@ class studentController extends Controller
     }
     
     public function getWeekMenu(){
+        //source: https://github.com/artisaninweb/laravel-soap
         $oSoapWrapper = new SoapWrapper();
         $oSoapWrapper->add('WebService', function ($oService){
             $oService
@@ -80,6 +85,16 @@ class studentController extends Controller
         echo json_encode($result);
     }
     
+    public function getBoek(){
+        //Source: https://github.com/AntoineAugusti/google-books
+        $client = new Client(['base_uri' => 'https://www.googleapis.com/books/v1/']);
+        $fetcher = new Fetcher($client);
+        $book = $fetcher->forISBN('9789022322338');
+        
+        
+        return var_dump($book);
+    }
+
     public function search()
     {
         return view("studenten");
