@@ -11,18 +11,34 @@ and open the template in the editor.
         <title>Boeken</title>
     </head>
     <body>
-        <h1>Dit zijn de boeken:</h1>
+        <h1><u>Zoekresultaten:</u></h1>
         @foreach ($books as $book)   
-                <h3>{{$book->title}}</h3>
-                <h4>{{$book->subtitle}}</h4>
+            <h2>Titel: {{$book->title}}</h2>
+            <h3>Ondertitel: {{$book->subtitle}}</h3>
+            <h3>Auteurs:
                 @foreach ($book->authors as $author)
-                    <h3>{{$author}}</h3>
+                    {{$author}}, 
                 @endforeach
-                
-                @foreach ($book->thumbnail as $thumbnail)
-                    <img src="{{$thumbnail}}" alt="thumbnail" />
-                @endforeach
-                <br>
+            </h3>
+            @foreach ($book->thumbnail as $thumbnail)
+                <img src="{{$thumbnail}}" alt="thumbnail" />
+                @break;
+            @endforeach
+            <p>
+                Uitgever: {{$book->publisher}}<br>
+                Datum van uitgave: 
+                    @foreach($book->publishedDate as $date)
+                        {{$date}}
+                    @endforeach<br>
+                Print type: {{$book->printType}}<br>
+                Aantal pagina's: {{$book->pageCount}}<br>
+                Gemiddelde beoordeling: {{$book->averageRating}}<br>
+                Taal: {{$book->language}}<br>
+                Categorie:
+                    @foreach ($book->categories as $categorie)
+                       {{$categorie}}, 
+                    @endforeach
+            </p>
         @endforeach
     </body>
 </html>

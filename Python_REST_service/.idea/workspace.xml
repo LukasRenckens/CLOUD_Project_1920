@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="" />
+    <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/app/Http/Controllers/studentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CLOUD_Project_1920/app/Http/Controllers/studentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/resources/views/boeken.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CLOUD_Project_1920/resources/views/boeken.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CLOUD_Project_1920/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +98,7 @@
       <workItem from="1577106105213" duration="10535000" />
       <workItem from="1577191561992" duration="11947000" />
       <workItem from="1577267660160" duration="15204000" />
+      <workItem from="1577462247856" duration="1743000" />
     </task>
     <servers />
   </component>

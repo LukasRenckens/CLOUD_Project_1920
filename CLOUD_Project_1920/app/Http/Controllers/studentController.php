@@ -85,15 +85,26 @@ class studentController extends Controller
         echo json_encode($result);
     }
     
-    public function getBoek(){
+    public function zoekBoeken(){
+        return view("zoekformulier_boeken");
+    }
+    public function getBook(Request $request){
+        $isbn = $request->input('isbn');
         //Source: https://github.com/AntoineAugusti/google-books
         $client = new Client(['base_uri' => 'https://www.googleapis.com/books/v1/']);
         $fetcher = new Fetcher($client);
-        $book = $fetcher->forISBN('9789022322338'); //Harry Potter
-        $books = $fetcher->forSearchTerm('Harry potter');
+        $book = $fetcher->forISBN($isbn);
         
-        return view("boeken")->with("books",$books);
-        //return var_dump($book);
+        return view("boek")->with("book", $book);
+    }
+    public function getBooks(Request $request){
+        $zoekterm = $request->input('zoekterm');
+        //Source: https://github.com/AntoineAugusti/google-books
+        $client = new Client(['base_uri' => 'https://www.googleapis.com/books/v1/']);
+        $fetcher = new Fetcher($client);
+        $books = $fetcher->forSearchTerm($zoekterm);
+        
+        return view("boeken")->with("books", $books);
     }
 
     public function search()

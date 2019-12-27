@@ -53,7 +53,9 @@ Route::get('dagmenu', 'StudentController@getDagmenu');
 Route::get('weekmenu', 'StudentController@getWeekmenu');
 
 //Route voor Google books API
-Route::get('boeken', 'StudentController@getBoek');
+Route::get('zoekBoeken', 'StudentController@zoekBoeken');
+Route::post('boek', 'StudentController@getBook');
+Route::post('boeken', 'StudentController@getBooks');
 
 Route::post('students/found','studentController@found');
 
