@@ -11,6 +11,7 @@ and open the template in the editor.
         <title>Boek</title>
     </head>
     <body> 
+        <a href="/zoekBoeken">&lArr; Terug naar zoekformulier</a>
         <h1><u>Zoekresultaat:</u></h1>
         <h2>Titel: {{$book->title}}</h2>
         <h3>Ondertitel: {{$book->subtitle}}</h3>
@@ -37,7 +38,7 @@ and open the template in the editor.
                 @foreach ($book->categories as $categorie)
                    {{$categorie}}, 
                 @endforeach
-        </p>
+        </p><hr>
     </body>
 </html>
 

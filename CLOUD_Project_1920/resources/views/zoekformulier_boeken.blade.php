@@ -15,7 +15,7 @@ and open the template in the editor.
         <form action="/boek" method="post">
             @csrf
             <label for="isbn">ISBN-nummer:</label>
-            <input type="number" id="isbn" placeholder="ISBN"><br>
+            <input type="number" id="isbn" name="isbn" placeholder="ISBN"><br>
             <small id="isbnHelp">Zowel ISBN 10 als 13 zijn geldig (bv. 9780262037242)</small><br>
             <input type="submit" value="Zoek op ISBN">
         </form>
@@ -23,7 +23,7 @@ and open the template in the editor.
         <form action="/boeken" method="post">
             @csrf
             <label for="zoekterm">Zoekterm:</label>
-            <input type="text" id="zoekterm" placeholder="Zoekterm"><br>
+            <input type="text" id="zoekterm" name="zoekterm" placeholder="Zoekterm"><br>
             <small id="zoektermHelp">Dit mag eender welke zoekterm zijn.</small><br>
             <input type="submit" value="Zoek op zoekterm">
         </form>
