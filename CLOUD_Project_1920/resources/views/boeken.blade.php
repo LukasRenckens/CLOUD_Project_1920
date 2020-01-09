@@ -41,7 +41,7 @@ and open the template in the editor.
                     @endforeach
             </p><hr>
         @endforeach
-        <a HREF="#top">&uArr; Top</a>
+        <a href="#top">&uArr; Top</a>
     </body>
 </html>
 

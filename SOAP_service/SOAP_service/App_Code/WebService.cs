@@ -31,18 +31,27 @@ public class WebService : System.Web.Services.WebService
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
-    [WebMethod]
+    
     public string Hello(int h)
     {
         if (h == 1) return "Hello 1";
         else return "Hello world!";
 
     }
+    [WebMethod]
+    public String[] GetDagen()
+    {
+        return dagen;
+    }
 
     [WebMethod]
     public List<Hoofdgerecht> GetHoofdgerechts()
     {
-        string connectionString = "Server=tcp:prjcloudserver.database.windows.net,1433;Initial Catalog=CLOUD_Database;Persist Security Info=False;User ID=lukas;Password=#CLOUD_project;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        //Local
+        //string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CLOUD_Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //Azure
+        string connectionString = "Data Source=cloud4090server.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#cloud4090server;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         SqlConnection connection = new SqlConnection(connectionString);
         SqlCommand command = new SqlCommand("SELECT * FROM Hoofdgerecht", connection);
         connection.Open();
@@ -64,8 +73,11 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public List<Dagsoep> GetDagsoeps()
     {
+        //Local
+        //string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CLOUD_Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //Azure
+        string connectionString = "Data Source=cloud4090server.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#cloud4090server;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        string connectionString = "Data Source=prjcloudserver.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#CLOUD_project;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
         SqlCommand command = new SqlCommand("SELECT * FROM Dagsoep", connection);
         connection.Open();
@@ -85,7 +97,11 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public List<Nagerecht> GetNagerechts()
     {
-        string connectionString = "Data Source=prjcloudserver.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#CLOUD_project;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //Local
+        //string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CLOUD_Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //Azure
+        string connectionString = "Data Source=cloud4090server.database.windows.net;Initial Catalog=CLOUD_Database;User ID=lukas;Password=#cloud4090server;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         SqlConnection connection = new SqlConnection(connectionString);
         SqlCommand command = new SqlCommand("SELECT * FROM Nagerecht", connection);
         connection.Open();
