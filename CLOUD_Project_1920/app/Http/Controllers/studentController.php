@@ -8,7 +8,6 @@ use App\Student;
 use Artisaninweb\SoapWrapper\SoapWrapper;
 use App\SOAP\GetDagMenuRequest;
 use App\SOAP\GetWeekMenuRequest;
-use App\SOAP\GetDagenRequest;
 //Google books API
 use AntoineAugusti\Books\Fetcher;
 use GuzzleHttp\Client;
@@ -68,21 +67,7 @@ class studentController extends Controller
     }
     
     public function getWeekMenu(){
-        //source: https://github.com/artisaninweb/laravel-soap
-        $oSoapWrapper = new SoapWrapper();
-        $oSoapWrapper->add('WebService', function ($oService){
-            $oService
-                ->wsdl('http://localhost:65266/WebService.asmx?WSDL')
-                ->trace(true)
-                ->classmap([
-                GetDagenRequest::class
-                ]);
-        });
-        $Response = $oSoapWrapper->call('WebService.GetDagen',[
-                new GetDagenRequest()
-            ]);
-        $dagen = ($Response->GetDagenResult);
-        
+        //source: https://github.com/artisaninweb/laravel-soap      
         $oSoapWrapper = new SoapWrapper();
         $oSoapWrapper->add('WebService', function ($oService){
             $oService
