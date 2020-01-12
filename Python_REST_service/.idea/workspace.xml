@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/app/Http/Controllers/studentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CLOUD_Project_1920/app/Http/Controllers/studentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/app/SOAP/GetDagenRequest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CLOUD_Project_1920/vendor.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/templates/master.html" afterDir="false" />
-    </list>
+    <list default="true" id="1f789f5a-d6bf-410a-b023-cc67d492fc7f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +95,7 @@
       <workItem from="1577267660160" duration="15204000" />
       <workItem from="1577462247856" duration="2341000" />
       <workItem from="1577535781316" duration="495000" />
-      <workItem from="1578833444153" duration="1069000" />
+      <workItem from="1578833444153" duration="1666000" />
     </task>
     <servers />
   </component>
